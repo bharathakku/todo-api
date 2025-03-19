@@ -3,7 +3,7 @@ const Todo = require("../models/Todo");
 
 exports.createTodo = async (req, res) => {
     try {
-        console.log("Received request:", req.body); // Debug log
+        console.log("Received request:", req.body); 
         const { title, completed = false } = req.body;
         if (!title) {
             return res.status(400).json({ error: 'Title is required' });
@@ -51,7 +51,6 @@ exports.updateTodoById = async (req, res) => {
     try {
         const { id } = req.params;
 
-        // Check if id is a valid ObjectId
         if (!mongoose.Types.ObjectId.isValid(id)) {
             return res.status(400).json({ error: "Invalid todo ID format" });
         }
